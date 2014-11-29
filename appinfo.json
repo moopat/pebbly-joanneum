@@ -15,6 +15,11 @@
             },
             {
                 "file": "fonts/Trebuchet MS.ttf",
+                "name": "FONT_TREBUCHET_18",
+                "type": "font"
+            },
+            {
+                "file": "fonts/Trebuchet MS.ttf",
                 "name": "FONT_TREBUCHET_42",
                 "type": "font"
             }

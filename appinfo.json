@@ -1,0 +1,25 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "Markus Deutsch",
+    "longName": "Tutorial 1",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "fonts/Trebuchet MS.ttf",
+                "name": "FONT_TREBUCHET_42",
+                "type": "font"
+            }
+        ]
+    },
+    "shortName": "Tutorial 1",
+    "uuid": "1525820a-5425-4ec5-8c67-bd1c0cf82d7e",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}

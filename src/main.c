@@ -3,6 +3,8 @@
 static Window *s_main_window;
 static TextLayer *s_time_layer;
 static GFont s_time_font;
+static BitmapLayer *s_background_layer;
+static GBitmap *s_background_bitmap;
 
 static void update_time() {
   // Get a tm structure
@@ -32,6 +34,11 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 static void main_window_load(Window *window) {
 	Layer *window_layer = window_get_root_layer(window);
   GRect window_bounds = layer_get_bounds(window_layer);
+	
+	s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_FHJOANNEUM_LOGO);
+	s_background_layer = bitmap_layer_create(GRect(5, 5, 134, 47));
+	bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
+	layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_background_layer));
 	
 	s_time_layer = text_layer_create(GRect(0, 52, window_bounds.size.w, 50));
 	text_layer_set_background_color(s_time_layer, GColorBlack);

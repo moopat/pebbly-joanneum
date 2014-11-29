@@ -9,6 +9,11 @@
     "resources": {
         "media": [
             {
+                "file": "images/fhjoanneum.png",
+                "name": "IMAGE_FHJOANNEUM_LOGO",
+                "type": "png"
+            },
+            {
                 "file": "fonts/Trebuchet MS.ttf",
                 "name": "FONT_TREBUCHET_42",
                 "type": "font"

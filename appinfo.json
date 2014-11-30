@@ -1,31 +1,41 @@
 {
-    "appKeys": {},
+    "appKeys": {
+        "KEY_LOCATION": 1,
+        "KEY_TIME": 2,
+        "KEY_TITLE": 0
+    },
     "capabilities": [
         ""
     ],
     "companyName": "Markus Deutsch",
-    "longName": "Tutorial 1",
+    "longName": "Pebbly Joanneum",
     "projectType": "native",
     "resources": {
         "media": [
             {
-                "file": "images/fhjoanneum.png",
-                "name": "IMAGE_FHJOANNEUM_LOGO",
+                "file": "fonts/Roboto-Regular.ttf",
+                "name": "FONT_ROBOTO_42",
+                "type": "font"
+            },
+            {
+                "file": "fonts/Roboto-Regular.ttf",
+                "name": "FONT_ROBOTO_18",
+                "type": "font"
+            },
+            {
+                "file": "images/menu.png",
+                "menuIcon": true,
+                "name": "IMAGE_MENU",
                 "type": "png"
             },
             {
-                "file": "fonts/Trebuchet MS.ttf",
-                "name": "FONT_TREBUCHET_18",
-                "type": "font"
-            },
-            {
-                "file": "fonts/Trebuchet MS.ttf",
-                "name": "FONT_TREBUCHET_42",
-                "type": "font"
+                "file": "images/fhjoanneum.png",
+                "name": "IMAGE_FHJOANNEUM_LOGO",
+                "type": "png"
             }
         ]
     },
-    "shortName": "Tutorial 1",
+    "shortName": "FH JOANNEUM",
     "uuid": "1525820a-5425-4ec5-8c67-bd1c0cf82d7e",
     "versionCode": 1,
     "versionLabel": "1.0",

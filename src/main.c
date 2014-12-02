@@ -3,6 +3,7 @@
 #define KEY_TITLE 0
 #define KEY_LOCATION 1
 #define KEY_TIME 2
+#define KEY_DISPLAY_STRING 3
 
 // UI Elements
 static Window *s_main_window;
@@ -16,6 +17,9 @@ static GFont s_schedule_font;
 // Graphics
 static BitmapLayer *s_background_layer;
 static GBitmap *s_background_bitmap;
+
+// Current Lecture Contents
+static char current_lecture_layer_buffer[50];
 
 static void update_time() {
   // Get a tm structure
@@ -36,6 +40,13 @@ static void update_time() {
 
   // Display this time on the TextLayer
   text_layer_set_text(s_time_layer, buffer);
+}
+
+static void update_schedule_from_storage(){
+	if(persist_exists(KEY_DISPLAY_STRING)){
+		persist_read_string(KEY_DISPLAY_STRING, current_lecture_layer_buffer, sizeof(current_lecture_layer_buffer));
+		text_layer_set_text(s_schedule_layer, current_lecture_layer_buffer);
+	}
 }
 
 static void main_window_load(Window *window) {
@@ -70,6 +81,9 @@ static void main_window_load(Window *window) {
 	
 	// Begin by updating the time.
 	update_time();
+	
+	// Load data from storage
+	update_schedule_from_storage();
 }
 
 static void main_window_unload(Window *window) {
@@ -139,6 +153,12 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
 	}
 	snprintf(lecture_layer_buffer, sizeof(lecture_layer_buffer), "%s\n%s\n%s", lecture_title_buffer, lecture_time_buffer, lecture_location_buffer);
 	text_layer_set_text(s_schedule_layer, lecture_layer_buffer);
+	
+	// Compare the buffers and decide whether to write to storage
+	if(strcmp(lecture_layer_buffer, current_lecture_layer_buffer) != 0){
+		persist_write_string(KEY_DISPLAY_STRING, lecture_layer_buffer);
+		strcpy(lecture_layer_buffer, current_lecture_layer_buffer);
+	}
 }
 
 static void inbox_dropped_callback(AppMessageResult reason, void *context) {

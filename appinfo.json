@@ -1,5 +1,6 @@
 {
     "appKeys": {
+        "KEY_DISPLAY_STRING": 3,
         "KEY_LOCATION": 1,
         "KEY_TIME": 2,
         "KEY_TITLE": 0

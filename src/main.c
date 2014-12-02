@@ -151,14 +151,16 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
 		// Get next item
 		t = dict_read_next(iterator);
 	}
-	snprintf(lecture_layer_buffer, sizeof(lecture_layer_buffer), "%s\n%s\n%s", lecture_title_buffer, lecture_time_buffer, lecture_location_buffer);
-	text_layer_set_text(s_schedule_layer, lecture_layer_buffer);
 	
+	snprintf(lecture_layer_buffer, sizeof(lecture_layer_buffer), "%s\n%s\n%s", lecture_title_buffer, lecture_time_buffer, lecture_location_buffer);
+		
 	// Compare the buffers and decide whether to write to storage
 	if(strcmp(lecture_layer_buffer, current_lecture_layer_buffer) != 0){
 		persist_write_string(KEY_DISPLAY_STRING, lecture_layer_buffer);
-		strcpy(lecture_layer_buffer, current_lecture_layer_buffer);
+		strcpy(current_lecture_layer_buffer, lecture_layer_buffer);
 	}
+	
+	text_layer_set_text(s_schedule_layer, lecture_layer_buffer);
 }
 
 static void inbox_dropped_callback(AppMessageResult reason, void *context) {

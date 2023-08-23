@@ -1,6 +1,8 @@
 pebbly-joanneum
 ===============
 
-A Pebble watchface displaying the next lecture time and location at FH JOANNEUM. Work in Progress.
+A Pebble watchface displaying the next lecture time and location at FH JOANNEUM.
 
-![Pebbly Joanneum](http://i60.tinypic.com/wa2gbd.png)
+Sadly, Pebble (the finest smartwatch of its time) has been discontinued.
+
+![Pebbly Joanneum](pebbly-joanneum.png)
